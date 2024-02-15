@@ -1,24 +1,21 @@
 /**
- * @param {number[]} nums
+ * @param {string} s
  * @return {number}
- * [100, 4, 200, 1, 3, 2]
  */
-
-var longestConsecutive = function(nums) {
-    if(nums === null || nums.length === 0){
-        return 0
-    }
-    let set = new Set(nums);
-    let maxLength = 1;
-    for (let num of set) {
-        if(set.has(num - 1)) continue;
-        let currentNum = num
-        let currentMax = 1
-        while(set.has(currentNum + 1)) {
-            currentNum++
-            currentMax++
+var lengthOfLongestSubstring = function(s) {
+    let set = new Set()
+    let l = 0; r = 0;
+    let res = 0
+    while(r < s.length) {
+        if(!set.has(s[r])) {
+            set.add(s[r])
+            res = Math.max(set.size, res)
+            r++
+        } else {
+            set.delete(s[l])
+            l++
         }
-        maxLength = Math.max(currentMax, maxLength)
     }
-    return maxLength;
+    return res
+
 };
