@@ -19,7 +19,7 @@ var characterReplacement = function(s, k) {
             res = Math.max(windowLen, res)
         } else {
             count[s[l]] = count[s[l]] - 1
-            l--
+            l++
         }
     }
     return res
