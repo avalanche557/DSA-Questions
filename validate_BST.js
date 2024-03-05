@@ -25,3 +25,4 @@ const dfs = (root, min, max) => {
     const right = isValidBST(root.right, root.val, max);
 
     return left && right;
+}
